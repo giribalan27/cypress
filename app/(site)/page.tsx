@@ -3,7 +3,6 @@ import React from 'react'
 import Banner from '@/public/appBanner.png'
 import Image from 'next/image'
 import { clients } from '@/constants'
-import { randomUUID } from 'crypto'
 
 const HomePage = () => {
   return (
