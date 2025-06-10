@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/providers/theme-provider";
-export const dynamic = 'force-dynamic';
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",

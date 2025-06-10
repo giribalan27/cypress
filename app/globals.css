@@ -1,7 +1,10 @@
+/* Import Tailwind CSS and tw-animate-css */
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Base layer for your custom properties (CSS variables) */
 @layer base {
+  /* Light Mode Variables (default) */
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
@@ -22,9 +25,9 @@
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 262.1 83.3% 57.8%;
-    --radius: 0.5rem;
-    
-     /* Washed Blue */
+    --radius: 0.5rem; /* This will be used for your border-radius theme value */
+
+    /* Washed Blue */
     --washed-blue-50: #f0f3ff;
     --washed-blue-100: #d0daff;
     --washed-blue-200: #bac9ff;
@@ -95,6 +98,7 @@
     --brand-dark: #030014;
   }
 
+  /* Dark Mode Variables */
   .dark {
     --background: 249 100% 3.9%;
     --foreground: 248 100% 88%;
@@ -118,6 +122,7 @@
   }
 }
 
+/* Base styles that use your variables */
 @layer base {
   * {
     border-color: hsl(var(--border));
@@ -126,5 +131,113 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+  }
+}
+
+/* NEW IN TAILWIND V4:
+  Use the @theme directive to expose your CSS variables as Tailwind utilities.
+  This effectively replaces the `theme.extend.colors` in tailwind.config.js for colors.
+*/
+@theme {
+  /* HSL-based colors (for dynamic themes like dark mode) */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* Hex-based colors (specific palettes) */
+  --color-washed-blue-50: var(--washed-blue-50);
+  --color-washed-blue-100: var(--washed-blue-100);
+  --color-washed-blue-200: var(--washed-blue-200);
+  --color-washed-blue-300: var(--washed-blue-300);
+  --color-washed-blue-400: var(--washed-blue-400);
+  --color-washed-blue-500: var(--washed-blue-500);
+  --color-washed-blue-600: var(--washed-blue-600);
+  --color-washed-blue-700: var(--washed-blue-700);
+  --color-washed-blue-800: var(--washed-blue-800);
+  --color-washed-blue-900: var(--washed-blue-900);
+
+  --color-washed-purple-50: var(--washed-purple-50);
+  --color-washed-purple-100: var(--washed-purple-100);
+  --color-washed-purple-200: var(--washed-purple-200);
+  --color-washed-purple-300: var(--washed-purple-300);
+  --color-washed-purple-400: var(--washed-purple-400);
+  --color-washed-purple-500: var(--washed-purple-500);
+  --color-washed-purple-600: var(--washed-purple-600);
+  --color-washed-purple-700: var(--washed-purple-700);
+  --color-washed-purple-800: var(--washed-purple-800);
+  --color-washed-purple-900: var(--washed-purple-900);
+
+  --color-primary-blue-50: var(--primary-blue-50);
+  --color-primary-blue-100: var(--primary-blue-100);
+  --color-primary-blue-200: var(--primary-blue-200);
+  --color-primary-blue-300: var(--primary-blue-300);
+  --color-primary-blue-400: var(--primary-blue-400);
+  --color-primary-blue-500: var(--primary-blue-500);
+  --color-primary-blue-600: var(--primary-blue-600);
+  --color-primary-blue-700: var(--primary-blue-700);
+  --color-primary-blue-800: var(--primary-blue-800);
+  --color-primary-blue-900: var(--primary-blue-900);
+
+  --color-primary-purple-50: var(--primary-purple-50);
+  --color-primary-purple-100: var(--primary-purple-100);
+  --color-primary-purple-200: var(--primary-purple-200);
+  --color-primary-purple-300: var(--primary-purple-300);
+  --color-primary-purple-400: var(--primary-purple-400);
+  --color-primary-purple-500: var(--primary-purple-500);
+  --color-primary-purple-600: var(--primary-purple-600);
+  --color-primary-purple-700: var(--primary-purple-700);
+  --color-primary-purple-800: var(--primary-purple-800);
+  --color-primary-purple-900: var(--primary-purple-900);
+
+  --color-neutrals-1: var(--neutrals-1);
+  --color-neutrals-2: var(--neutrals-2);
+  --color-neutrals-3: var(--neutrals-3);
+  --color-neutrals-4: var(--neutrals-4);
+  --color-neutrals-5: var(--neutrals-5);
+  --color-neutrals-6: var(--neutrals-6);
+  --color-neutrals-7: var(--neutrals-7);
+  --color-neutrals-8: var(--neutrals-8);
+  --color-neutrals-9: var(--neutrals-9);
+  --color-neutrals-10: var(--neutrals-10);
+  --color-neutrals-11: var(--neutrals-11);
+  --color-neutrals-12: var(--neutrals-12);
+  --color-neutrals-13: var(--neutrals-13);
+
+  --color-brand-washed-purple: var(--brand-washed-purple);
+  --color-brand-washed-blue: var(--brand-washed-blue);
+  --color-brand-primary-blue: var(--brand-primary-blue);
+  --color-brand-primary-purple: var(--brand-primary-purple);
+  --color-brand-dark: var(--brand-dark);
+
+  /* Radius variable mapping */
+  --border-radius-default: var(--radius);
+}
+
+.animate-slide {
+  animation: 15s slide linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
