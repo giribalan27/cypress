@@ -96,13 +96,12 @@ const HomePage = () => {
 				/>
 				<div className='sm:flex gap-20 mt-10 sm:justify-center sm:items-center max-sm:flex-col justify-center items-start'>
 					{PRICING_CARDS.map((card) => (
-						<div className='relative mt-10'>
+						<div key={card.planType} className='relative mt-10'>
 							{card.planType === 'Pro Plan' && (
 								<div className='absolute bg-gradient-to-r from-purple-400 to-neutral-900 h-full top-0 bottom-0 left-20 right-0 blur-[120px] w-40' />
 							)}
 							<CustomCard 
 								{...card}
-								key={card.planType}
 							/>
 						</div>
 					))}
