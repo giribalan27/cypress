@@ -2,7 +2,8 @@ import TitleSection from '@/components/landing-page/title-section'
 import React from 'react'
 import Banner from '@/public/appBanner.png'
 import Image from 'next/image'
-import { clients } from '@/constants'
+import { clients, PRICING_CARDS } from '@/constants'
+import CustomCard from '@/components/landing-page/custom-card'
 
 const HomePage = () => {
   return (
@@ -76,7 +77,7 @@ const HomePage = () => {
 				</div>
 			</section>
  
-			<section className='mt-10 relative px-4 sm:px-6 flex justify-start md:justify-center'>
+			{/* <section className='mt-10 relative px-4 sm:px-6 flex justify-start md:justify-center'>
 				<div 
 					className='absolute w-[30%] rounded-full bg-brand-primary-purple blur-[130px] h-32 -z-10 top-22'
 				/>
@@ -85,6 +86,27 @@ const HomePage = () => {
 					subheading='Join thousands of satisfied users who rely on our platform for their presonal and productivity needs.'
 					pill='Testimonials'
 				/>
+			</section> */}
+
+			<section className='mt-10 relative px-4 sm:px-6 flex flex-col mb-20'>
+				<TitleSection 
+					title='The Prefect Plan for You'
+					subheading='Join the thousands of satified users who rely on our platform for their personal and professional productivity needs'
+					pill='Pricing'
+				/>
+				<div className='sm:flex gap-20 mt-10 sm:justify-center sm:items-center max-sm:flex-col justify-center items-start'>
+					{PRICING_CARDS.map((card) => (
+						<div className='relative mt-10'>
+							{card.planType === 'Pro Plan' && (
+								<div className='absolute bg-gradient-to-r from-purple-400 to-neutral-900 h-full top-0 bottom-0 left-20 right-0 blur-[120px] w-40' />
+							)}
+							<CustomCard 
+								{...card}
+								key={card.planType}
+							/>
+						</div>
+					))}
+				</div>
 			</section>
     </>
   )
