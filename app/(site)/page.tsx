@@ -8,7 +8,7 @@ import CustomCard from '@/components/landing-page/custom-card'
 const HomePage = () => {
   return (
     <>
-      <section className='flex flex-col overflow-hidden gap-4 px-4 mt-10 sm:px-6 md:justify-center md:items-center'>
+      <section className='flex flex-col overflow-hidden gap-4 px-4 sm:px-6 md:justify-center md:items-center'>
         <TitleSection 
           title='All-In-One Collaboration and Productivity Platform'
           pill='✨ Your workspace protected'
